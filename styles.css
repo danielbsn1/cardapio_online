@@ -1,0 +1,612 @@
+/* Reset básico */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f6f2 60%, #f3e6d0 100%);
+  color: #333;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(90deg, #fff 60%, #f3e6d0 100%);
+  padding: 32px 0 16px 0;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(180,138,120,0.10);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: #b48a78;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  text-shadow: 0 2px 8px #f3e6d0, 0 1px 0 #fff;
+}
+
+header p {
+  color: #8c5e3c;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.menu-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(180,138,120,0.15), 0 1.5px 6px rgba(180,138,120,0.10);
+  animation: fadeIn 1s;
+  border: 2px solid #f3e6d0;
+  margin-top: 48px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.menu-section {
+  margin-bottom: 32px;
+}
+
+.menu-section:not(:last-child) {
+  margin-bottom: 48px;
+}
+
+.menu-section h2 {
+  color: #8c5e3c;
+  border-bottom: 2px solid #f3e6d0;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+}
+
+/* Destaque especial para a seção de Trufas */
+.menu-section.trufas {
+  background: linear-gradient(90deg, #fffbe9 60%, #f3e6d0 100%);
+  border: 2px solid #f3e6d0;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(180,138,120,0.10);
+  padding: 24px 24px 8px 24px;
+  margin-bottom: 40px;
+  animation: fadeIn 1.2s;
+  position: relative;
+}
+
+.menu-section.trufas h2 {
+  font-size: 2rem;
+  color: #b48a78;
+  text-shadow: 0 2px 8px #f3e6d0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-section.trufas h2::before {
+  content: "🍫";
+  font-size: 2.2rem;
+  margin-right: 8px;
+}
+
+/* Nome das trufas com destaque */
+.menu-section.trufas .menu-item-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #8c5e3c;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 0 1px 6px #f3e6d0;
+}
+
+/* Ícone de trufa individual */
+.menu-section.trufas .menu-item-name::before {
+  content: "🍬";
+  font-size: 1.3rem;
+  margin-right: 6px;
+}
+
+/* Preço das trufas mais chamativo */
+.menu-section.trufas .menu-item-price {
+  background: linear-gradient(90deg, #ffe6c7 60%, #f3e6d0 100%);
+  color: #b48a78;
+  border: 2px solid #f3e6d0;
+  font-size: 1.18rem;
+  font-weight: bold;
+  border-radius: 16px;
+  padding: 6px 22px;
+  box-shadow: 0 2px 8px rgba(180,138,120,0.10);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.menu-section.trufas .menu-item-price:hover {
+  background: linear-gradient(90deg, #f3e6d0 60%, #ffe6c7 100%);
+  color: #8c5e3c;
+  transform: scale(1.08);
+  cursor: pointer;
+}
+
+.menu-list {
+  list-style: none;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #f3e6d0;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background: #f8f6f2;
+}
+
+.menu-item-name {
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
+
+.menu-item-price {
+  color: #b48a78;
+  font-weight: bold;
+  font-size: 1.15rem;
+  background: #f3e6d0;
+  padding: 4px 16px;
+  border-radius: 12px;
+}
+
+.btn-contato {
+  display: inline-block;
+  margin: 32px auto 0 auto;
+  padding: 16px 40px;
+  background: linear-gradient(90deg, #b48a78 60%, #8c5e3c 100%);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #b48a78;
+  border-radius: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(180,138,120,0.13);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-contato:hover {
+  background: linear-gradient(90deg, #8c5e3c 60%, #b48a78 100%);
+  border-color: #8c5e3c;
+  transform: translateY(-2px) scale(1.03);
+}
+
+footer {
+  margin-top: 64px;
+  padding: 24px 0;
+  background: #f3e6d0;
+  color: #8c5e3c;
+  text-align: center;
+  font-size: 1.08rem;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 -2px 16px rgba(180,138,120,0.08);
+}
+
+/* Cards dos produtos */
+.product-card {
+  background: #fffbe9;
+  border: 2px solid #f3e6d0;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(180,138,120,0.10);
+  padding: 24px 18px 18px 18px;
+  margin: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  vertical-align: top;
+  text-align: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(180,138,120,0.18);
+}
+
+.product-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 2px solid #ffe6c7;
+  box-shadow: 0 2px 8px #f3e6d0;
+}
+
+.product-card h3 {
+  font-size: 1.25rem;
+  color: #b48a78;
+  margin: 8px 0 4px 0;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.product-card h3::before {
+  content: "🍬";
+  font-size: 1.3rem;
+}
+
+.product-card p {
+  color: #8c5e3c;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.product-card span {
+  display: block;
+  background: linear-gradient(90deg, #ffe6c7 60%, #f3e6d0 100%);
+  color: #b48a78;
+  border: 2px solid #f3e6d0;
+  font-size: 1.12rem;
+  font-weight: bold;
+  border-radius: 16px;
+  padding: 6px 0;
+  margin: 0 auto 10px auto;
+  width: 90px;
+  box-shadow: 0 2px 8px rgba(180,138,120,0.10);
+}
+
+.product-card .add-to-cart {
+  background: linear-gradient(90deg, #b48a78 60%, #8c5e3c 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 2px 8px rgba(180,138,120,0.13);
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+
+.product-card .add-to-cart:hover {
+  background: linear-gradient(90deg, #8c5e3c 60%, #b48a78 100%);
+  transform: scale(1.07);
+}
+
+/* Responsivo para cards */
+@media (max-width: 900px) {
+  .product-card {
+    width: 90%;
+    margin: 16px auto;
+    display: block;
+  }
+}
+
+/* Carrinho de compras */
+#cart-summary {
+  background: #fffbe9;
+  border: 2px solid #f3e6d0;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(180,138,120,0.10);
+  padding: 18px 18px 10px 18px;
+  margin: 32px auto 24px auto;
+  max-width: 350px;
+  text-align: center;
+}
+
+#cart-summary h3 {
+  color: #b48a78;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  margin-bottom: 12px;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0; /* Corrigido: adicionado ponto e vírgula */
+}
+
+#cart-items li {
+  color: #8c5e3c;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+#cart-total {
+  color: #b48a78;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+#whatsapp-link button {
+  background: linear-gradient(90deg, #25d366 60%, #128c7e 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 2px 8px rgba(180,138,120,0.13);
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+
+#whatsapp-link button:hover {
+  background: linear-gradient(90deg, #128c7e 60%, #25d366 100%);
+  transform: scale(1.07);
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 10px;
+  }
+  .menu-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-item-price {
+    margin-top: 4px;
+  }
+  header {
+    padding: 24px 0 10px 0;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+  }
+  footer {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Menu de navegação bonito */
+nav {
+  background: linear-gradient(90deg, #fff 60%, #f3e6d0 100%);
+  box-shadow: 0 2px 16px rgba(180,138,120,0.08);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  margin-bottom: 32px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  padding: 18px 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: #b48a78;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  font-size: 1.18rem;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 16px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background: #ffe6c7;
+  color: #8c5e3c;
+  box-shadow: 0 2px 8px #f3e6d0;
+  outline: none;
+}
+
+.bem-vindo {
+  background: linear-gradient(90deg, #fffbe9 60%, #f3e6d0 100%);
+  border: 2px solid #f3e6d0;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(180,138,120,0.10);
+  padding: 32px 18px 24px 18px;
+  margin: 32px auto 32px auto;
+  max-width: 700px;
+  text-align: center;
+  animation: fadeIn 1.2s;
+}
+
+.bem-vindo h1 {
+  color: #78b48f;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.bem-vindo h1 span {
+  color: #8c5e3c;
+  font-family: inherit;
+}
+
+.bem-vindo p {
+  color: #8c5e3c;
+  font-size: 1.18rem;
+  margin-bottom: 0;
+}
+
+.produtos-titulo {
+  text-align: center;
+  margin: 32px 0 18px 0;
+}
+
+.produtos-titulo h2 {
+  color: #b48a78;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #f3e6d0;
+}
+
+.sobre-nos, .contato {
+  background: #fff;
+  border: 2px solid #f3e6d0;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(180,138,120,0.08);
+  padding: 28px 18px 18px 18px;
+  margin: 32px auto 24px auto;
+  max-width: 700px;
+  text-align: center;
+  animation: fadeIn 1.2s;
+}
+
+.sobre-nos h2, .contato h2 {
+  color: #b48a78;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.sobre-nos p, .contato p {
+  color: #8c5e3c;
+  font-size: 1.08rem;
+  margin-bottom: 12px;
+}
+
+.trufa-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trufa-img-wrapper img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffe6c7;
+  box-shadow: 0 2px 8px #f3e6d0;
+}
+
+.trufa-icone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 4px #fffbe9);
+}
+
+/* Estilos específicos para a nova seção de produtos */
+.nova-secao-produtos {
+  background: #fff;
+  border: 2px solid #f3e6d0;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(180,138,120,0.08);
+  padding: 28px 18px 18px 18px;
+  margin: 32px auto 24px auto;
+  max-width: 700px;
+  text-align: center;
+  animation: fadeIn 1.2s;
+}
+
+.nova-secao-produtos h2 {
+  color: #b48a78;
+  font-family: 'Segoe Script', cursive, Arial, sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.nova-secao-produtos p {
+  color: #8c5e3c;
+  font-size: 1.08rem;
+  margin-bottom: 12px;
+}
+
+.nova-secao-produtos .product-card {
+  width: 100%;
+  margin: 16px 0;
+  display: block;
+}
+
+.nova-secao-produtos .product-card h3 {
+  font-size: 1.2rem;
+}
+
+.nova-secao-produtos .product-card p {
+  font-size: 0.9rem;
+}
+
+.nova-secao-produtos .product-card span {
+  font-size: 1rem;
+}
+
+.nova-secao-produtos .product-card .add-to-cart {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* Exemplo de estilo para um botão de ação na nova seção */
+.btn-acao {
+  background: linear-gradient(90deg, #8c5e3c 60%, #b48a78 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(180,138,120,0.13);
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+
+.btn-acao:hover {
+  background: linear-gradient(90deg, #b48a78 60%, #8c5e3c 100%);
+  transform: scale(1.05);
+}
+
+.trufa-img-wrapper.icone-only {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffbe9;
+  border-radius: 50%;
+  border: 2px solid #ffe6c7;
+  box-shadow: 0 2px 8px #f3e6d0;
+  margin: 0 auto 12px auto;
+  position: relative;
+}
+
+.trufa-img-wrapper.icone-only .trufa-icone {
+  font-size: 3.5rem;
+  line-height: 1;
+  position: static;
+  filter: none;
+}
+
+#produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
