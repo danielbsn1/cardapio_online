@@ -17,12 +17,7 @@ function updateCart() {
     whatsappLink.style.display = total > 0 ? 'inline-block' : 'none';
 
     // Monta a mensagem para o WhatsApp
-    let message ="Para concluir seu pedido, envie as seguintes informações"
-                  "Entrega/Retirada: "
-                  "Nome: "
-                  "Forma de pagamento (pix ou dinheiro):" 
-                  "Endereço:" 
-                 "Assim que recebermos os dados, seu pedido será confirmado e entraremos em contato!"
+    let message ="Para concluir seu pedido, envie as seguintes informaçõesEntrega/Retirada: Nome: Forma de pagamento (pix ou dinheiro):Endereço:Assim que recebermos os dados, seu pedido será confirmado e entraremos em contato!"
 
     message += 'Cardápio:\n';
     cart.forEach(item => {
