@@ -17,7 +17,13 @@ function updateCart() {
     whatsappLink.style.display = total > 0 ? 'inline-block' : 'none';
 
     // Monta a mensagem para o WhatsApp
-    let message = 'Oi! Que bom te ver por aqui 🍫 Somos apaixonados por doces artesanais e vamos fazer de tudo pra adoçar o seu dia. Já te respondemos!\n\n';
+    let message ="Para concluir seu pedido, envie as seguintes informações"
+                  "Entrega/Retirada: "
+                  "Nome: "
+                  "Forma de pagamento (pix ou dinheiro):" 
+                  "Endereço:" 
+                 "Assim que recebermos os dados, seu pedido será confirmado e entraremos em contato!"
+
     message += 'Cardápio:\n';
     cart.forEach(item => {
         message += `- ${item.name} (x${item.qty}) - R$ ${item.price.toFixed(2)}\n`;
