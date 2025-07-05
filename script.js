@@ -18,10 +18,8 @@ function updateCart() {
 
     // Monta a mensagem para o WhatsApp
     let message ="Para concluir seu pedido, envie as seguintes informaçõees"
-                 enedereço=
-                 entrega/retirada
-                 "Assim que recebermos os dados, seu pedido será confirmado e entraremos em contato!"
-    message += 'Cardápio:\n';
+
+    message += 'Cardápio:\n'
     cart.forEach(item => {
         message += `- ${item.name} (x${item.qty}) - R$ ${item.price.toFixed(2)}\n`;
     });
