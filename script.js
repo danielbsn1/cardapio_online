@@ -17,7 +17,7 @@ function updateCart() {
     whatsappLink.style.display = total > 0 ? 'inline-block' : 'none';
 
     // Monta a mensagem para o WhatsApp
-    let message =
+    let message ="Envie os produtos escolhidos para que possamos confirmar seu pedido."
 
     message += 'Cardápio:\n'
     cart.forEach(item => {
