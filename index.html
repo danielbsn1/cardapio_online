@@ -613,26 +613,22 @@
     </script>
 </body>
 </html>
-
+         //adicionar a opçaao limpara carrinho
+            <div id="cart-summary">
                 <h3>Seu Pedido</h3>
                 <ul id="cart-items"></ul>
-                <p id="cart-total"></p>
+                <p id="cart-total">Total: R$ 0,00</p>
                 <a id="whatsapp-link" href="#" target="_blank" style="display:none;">
                     <button>Enviar pedido pelo WhatsApp</button>
                 </a>
+                <script>
+                    // Função para limpar o carrinho
+                    function clearCart() {
+                        cart = [];
+                        updateCart();
+                    }
+                </script>
             </div>
-        </section>
-        //adicionar a opçaao limpara carrinho
-        <button id="clear-cart" onclick="clearCart()">Limpar Carrinho</button>
-            <script>
-                // Função para limpar o carrinho
-                function clearCart() {
-                    cart = [];
-                    updateCart();
-                }
-            </script>
-          
-
         <section id="sobre">
             <h2>Sobre Nós</h2>
             <p>Formaggini Trufas é uma empresa dedicada a criar trufas artesanais de alta qualidade. Nossa missão é proporcionar momentos doces e inesquecíveis.</p>
