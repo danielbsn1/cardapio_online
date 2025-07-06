@@ -573,15 +573,14 @@
             const cartItemsEl = document.getElementById('cart-items');
             const cartTotalEl = document.getElementById('cart-total');
             const whatsappLink = document.getElementById('whatsapp-link');
-            
-            // Limpar o carrinho
-            cartItemsEl.innerHTML = '';
-            whatsappLink.style.display = 'none';
-            cartTotalEl.textContent = 'Total: R$ 0,00';
+            cartItemsEl.innerHTML = ''; // Limpar itens do carrinho
+            whatsappLink.style.display = 'none'; // Esconder link do WhatsApp inicialmente
             if (cart.length === 0) {
                 cartItemsEl.innerHTML = '<li>Nenhum item no carrinho.</li>';
+                cartTotalEl.textContent = 'Total: R$ 0,00';
                 return;
             }
+            
             
 
             // Adicionar itens ao carrinho

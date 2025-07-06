@@ -57,10 +57,5 @@ document.getElementById('whatsapp-link').addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     updateCart(); // Atualiza o carrinho ao carregar a página
 });
-// Adiciona a funcionalidade de limpar o carrinho
-document.getElementById('clear-cart').addEventListener('click', () => {
-    cart.length = 0; // Limpa o array do carrinho
-    updateCart(); // Atualiza a exibição do carrinho
-    alert('Carrinho limpo com sucesso!');
-});
+
 
