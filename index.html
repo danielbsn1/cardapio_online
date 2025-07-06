@@ -575,6 +575,13 @@
             const whatsappLink = document.getElementById('whatsapp-link');
             
             // Limpar o carrinho
+            cartItemsEl.innerHTML = '';
+            whatsappLink.style.display = 'none';
+            cartTotalEl.textContent = 'Total: R$ 0,00';
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<li>Nenhum item no carrinho.</li>';
+                return;
+            }
            
 
             // Adicionar itens ao carrinho
