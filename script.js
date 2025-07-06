@@ -28,7 +28,7 @@ function updateCart() {
 }
     // funçao limpar o carrinho
 function clearCart() {
-    cart.length = // Limpa o array do carrinho
+    cart.length = 0 //Limpa o array do carrinho
     updateCart(); // Atualiza a exibição do carrinho
     alert('Carrinho limpo com sucesso!');
 
@@ -43,5 +43,7 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
             cart.push({ name, price, qty: 1 });
         }
         updateCart();
+        alert(`${name} adicionado ao carrinho!`);
     });
 });
+}
