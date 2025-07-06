@@ -31,6 +31,7 @@ function clearCart() {
     cart.length = 0 //Limpa o array do carrinho
     updateCart(); // Atualiza a exibição do carrinho
     alert('Carrinho limpo com sucesso!');
+}
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -46,4 +47,20 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
         alert(`${name} adicionado ao carrinho!`);
     });
 });
-}
+document.getElementById('clear-cart').addEventListener('click', clearCart);
+document.getElementById('whatsapp-link').addEventListener('click', (e) => {
+    if (cart.length === 0) {
+        e.preventDefault();
+        alert('Seu carrinho está vazio. Adicione itens antes de enviar o pedido.');
+    }
+});
+document.addEventListener('DOMContentLoaded', () => {
+    updateCart(); // Atualiza o carrinho ao carregar a página
+});
+// Adiciona a funcionalidade de limpar o carrinho
+document.getElementById('clear-cart').addEventListener('click', () => {
+    cart.length = 0; // Limpa o array do carrinho
+    updateCart(); // Atualiza a exibição do carrinho
+    alert('Carrinho limpo com sucesso!');
+});
+
