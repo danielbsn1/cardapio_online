@@ -84,3 +84,18 @@ function adjustQuantity(button, change) {
     quantityDisplay.textContent = existingProduct ? existingProduct.quantity : 0;
 }
 // Função para ajustar a quantidade de produtos diretamente
+function adjustQuantityDirectly(productName, change) {
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity += change;
+
+        // Remove o produto se a quantidade for menor que 1
+        if (existingProduct.quantity < 1) {
+            cart = cart.filter(item => item.name !== productName);
+        }
+    }
+
+    // Atualiza a exibição do carrinho
+    updateCartDisplay();
+}
