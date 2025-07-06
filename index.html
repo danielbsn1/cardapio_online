@@ -481,23 +481,15 @@
                 </div>
                 <button class="add-to-cart" onclick="addToCart(this)" data-name="brigadeiro de ninho com ovomaltine" data-price="12.00">Adicionar ao pedido</button>
             </div>
-              <div id="cart-summary">
-                <h3>Seu Pedido</h3>
+            <section id="WhatsApp">
+            <div id="cart-summary">
+                <h2>Resumo do Pedido</h2>
                 <ul id="cart-items"></ul>
-                <p id="cart-total">Total: R$ 0,00</p>
-                <a id="whatsapp-link" href="#" target="_blank" style="display:none;">
-                    <button>Enviar pedido pelo WhatsApp</button>
-                </a> class="btn-contato" href="https://wa.me/5533988825731?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20ou%20tirar%20uma%20dúvida." target="_blank">
-                    Chamar no WhatsApp </a>
-            </div>
-
-                <div>
-                <div id="cart-items"></div>
-                <h3> limpar o Carrinho</h3>
-                <ul id="limpar Carrinho"></ul>
-                <p id="limpar Carrinho">Total: R$ 0,00</p>
-                <button onclick="clearCart()" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 1.1rem; cursor: pointer; margin-top: 10px;">Limpar Carrinho</button>
-                   
+                <p id="cart-total">Total: R$ 0.00</p>
+                <button id="clear-cart" onclick="clearCart()">Limpar Carrinho</button>
+                <div id="whatsapp-link">
+                    <button onclick="sendToWhatsApp()">Enviar Pedido pelo WhatsApp</button>
+                </div>
             </div>
         <section id="sobre">
             <h2>Sobre Nós</h2>
