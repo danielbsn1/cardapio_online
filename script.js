@@ -72,7 +72,7 @@ function adjustQuantity(button, change) {
         existingProduct.quantity += change;
 
         // Remove o produto se a quantidade for menor que 1
-        if (existingProduct.quantity < 1) {
+        if (existingProduct.quantity < 0) {
             cart = cart.filter(item => item.name !== productName);
         }
     }
