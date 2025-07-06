@@ -64,6 +64,7 @@ function sendToWhatsApp() {
 
 // Função para ajustar a quantidade de produtos
 function adjustQuantity(button, change) {
+    // Obtém o nome do produto a partir do elemento que contém a quantidade
     const productName = button.parentElement.nextElementSibling.getAttribute('data-name');
     const existingProduct = cart.find(item => item.name === productName);
 
@@ -78,4 +79,9 @@ function adjustQuantity(button, change) {
 
     // Atualiza a exibição do carrinho
     updateCartDisplay();
+
+    // Atualiza a exibição da quantidade no elemento correspondente
+    const quantityDisplay = button.parentElement.querySelector('.quantity-display');
+    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : 0;
 }
+
