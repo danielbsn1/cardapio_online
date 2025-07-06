@@ -31,6 +31,9 @@ function clearCart() {
     cart.length = 0 //Limpa o array do carrinho
     updateCart(); // Atualiza a exibição do carrinho
     alert('Carrinho limpo com sucesso!');
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.classList.remove('added'); // Remove a classe 'added' de todos os botões
+    });
 }
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
