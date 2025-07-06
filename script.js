@@ -89,3 +89,14 @@ function adjustQuantity(button, change) {
     const quantityDisplay = button.parentElement.querySelector('.quantity-display');
     quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 1 : 0);
 }
+
+// Função para inicializar a quantidade ao carregar a página
+function initializeQuantityDisplay() {
+    const quantityDisplays = document.querySelectorAll('.quantity-display');
+    quantityDisplays.forEach(display => {
+        display.textContent = '0'; // Inicializa todas as quantidades como 0
+    });
+}
+
+// Chama a função para inicializar a quantidade ao carregar a página
+initializeQuantityDisplay();
