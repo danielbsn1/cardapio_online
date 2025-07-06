@@ -101,3 +101,4 @@ function addQuantityButtons() {
     });
 }
 // Chama a função para adicionar os botões de ajuste de quantidade
+addQuantityButtons();
