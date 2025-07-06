@@ -79,26 +79,3 @@ function adjustQuantity(button, change) {
     // Atualiza a exibição do carrinho
     updateCartDisplay();
 }
-// Função para adicionar botões de ajuste de quantidade
-function addQuantityButtons() { 
-    const productElements = document.querySelectorAll('.product');
-    productElements.forEach(product => {
-        const adjustButtons = document.createElement('div');
-        adjustButtons.className = 'adjust-quantity';
-
-        const decreaseButton = document.createElement('button');
-        decreaseButton.textContent = '-';
-        decreaseButton.onclick = () => adjustQuantity(decreaseButton, -1);
-
-        const increaseButton = document.createElement('button');
-        increaseButton.textContent = '+';
-        increaseButton.onclick = () => adjustQuantity(increaseButton, 1);
-
-        adjustButtons.appendChild(decreaseButton);
-        adjustButtons.appendChild(increaseButton);
-        
-        product.appendChild(adjustButtons);
-    });
-}
-// Chama a função para adicionar os botões de ajuste de quantidade
-addQuantityButtons();
