@@ -28,9 +28,9 @@ function updateCart() {
 }
     // funçao limpar o carrinho
 function clearCart() {
-    cart.length = 0;
-    updateCart();
-}
+    cart.length = // Limpa o array do carrinho
+    updateCart(); // Atualiza a exibição do carrinho
+    alert('Carrinho limpo com sucesso!');
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
