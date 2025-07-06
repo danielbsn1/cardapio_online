@@ -574,15 +574,7 @@
             const cartTotalEl = document.getElementById('cart-total');
             const whatsappLink = document.getElementById('whatsapp-link');
             cartItemsEl.innerHTML = ''; // Limpar itens do carrinho
-            whatsappLink.style.display = 'none'; // Esconder link do WhatsApp inicialmente
-            if (cart.length === 0) {
-                cartItemsEl.innerHTML = '<li>Nenhum item no carrinho.</li>';
-                cartTotalEl.textContent = 'Total: R$ 0,00';
-                return;
-            }
-            
-            
-
+        
             // Adicionar itens ao carrinho
             cart.forEach(item => {
                 const li = document.createElement('li');
@@ -612,30 +604,18 @@
                 
                 // Atualizar link do WhatsApp
                 whatsappLink.href = `https://wa.me/5533988825731?text=${encodeURIComponent(message)}`;
-            } else {
-                whatsappLink.style.display = 'none';
-            }
+            } else {           
         }
     </script>
 </body>
 </html>
-      
-
-        
-         
-                </script>
-            </div>
-        <section id="sobre">
+         <section id="sobre nos">
             <h2>Sobre Nós</h2>
-            <p>Conheça a Formaggini Trufas 🍫✨
-
-A Formaggini Trufas é uma loja artesanal feita com amor e muito sabor! Com mais de um ano de história, é comandada por uma única pessoa — que cuida de tudo com carinho: desde a produção até a entrega final.
-
-Aqui, cada trufa é feita à mão, com ingredientes selecionados e um cuidado especial em cada detalhe. Nosso foco é entregar qualidade, frescor e aquele sabor marcante que faz toda diferença!
-
-Seja para presente, datas especiais ou só para adoçar seu dia, você pode contar com a Formaggini Trufas..</p>
-        </section>
-
+            <p>Conheça a Formaggini Trufas 🍫✨</p>
+            <p>A Formaggini Trufas é uma loja artesanal feita com amor e muito sabor! Com mais de um ano de história, é comandada por uma única pessoa — que cuida de tudo com carinho: desde a produção até a entrega final.</p>
+            <p>Aqui, cada trufa é feita à mão, com ingredientes selecionados e um cuidado especial em cada detalhe. Nosso foco é entregar qualidade, frescor e aquele sabor marcante que faz toda diferença!</p>
+            <p>Seja para presente, datas especiais ou só para adoçar seu dia, você pode contar com a Formaggini Trufas.</p>  
+      
         <section id="contato">
             <h2>Contato</h2>
             <p>Fale conosco pelo WhatsApp:</p>
@@ -643,13 +623,54 @@ Seja para presente, datas especiais ou só para adoçar seu dia, você pode cont
                 Chamar no WhatsApp
             </a>
         </section>
+        <footer>
+            <p>&copy; 2023 Formaggini Trufas. Todos os direitos reservados.</p>
+        </footer>
     </main>
-    <footer>
-        <p>&copy; 2023 Formaggini Trufas. Todos os direitos reservados.</p>
-        
     <script src="script.js"></script>
 </body>
-</html> 
-<!-- End of HTML template -->
-
+</html>
+        // eu quero que o programa acabe aqui eu nao quero adcionar mas nada
+        } else {
+                whatsappLink.style.display = 'none';
+            }
+        } 
+        // Função para limpar o carrinho
+        function clearCart() {  
+            cart.length = 0; // Limpa o array do carrinho
+            updateCart(); // Atualiza a exibição do carrinho
+            alert('Carrinho limpo com sucesso!');
+        }
+        // Adicionar evento de clique no botão de limpar carrinho
+        document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+        // para de digitar eu nao quero adcionar mas nada so quero que o programa acabe aqui
+    </script>
+</body>
+</html>
+    <style>
+        #clear-cart-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #clear-cart-btn:hover {
+            background-color: #e60000;
+        }
+    </style>
+    <button id="clear-cart-btn">Limpar Carrinho</button>
+    <script>
+        // Função para atualizar o carrinho
+        function updateCart() {
+            const cartItemsEl = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart- total');
+            const whatsappLink = document.getElementById('whatsapp-link');
+            cartItemsEl.innerHTML = ''; // Limpa os itens do carrinho
+            // eu nao quero adcionar mas nada no programa
+     
 
