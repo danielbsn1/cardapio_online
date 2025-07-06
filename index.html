@@ -45,7 +45,7 @@
             <div class="product-card">
                 <img src="trufa-de-limao.jpg.jpeg" alt="Trufa de Limão">
                 <h3>Trufa de Limão</h3>
-                <p>Trufa refrescante com recheio de limão siciliano.</p>
+                <p>Trufa de torta de limão.</p>
                 <span>R$ 4,00</span>
                 <button class="add-to-cart" data-name="Trufa de Limão" data-price="4.00">Adicionar ao pedido</button>
             </div>
@@ -114,7 +114,506 @@
             </div>
 
             <!-- Carrinho de compras -->
+            <div id="cart-summary"><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formaggini Trufas</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #fff9f0;
+      color: #5a3921;
+      font-size: 18px;
+    }
+    
+    header {
+      background-color: #5a3921;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin: 20px 0;
+      text-align: center;
+      color: #5a3921;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    
+    nav {
+      background-color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 20px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #5a3921;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #c8a97e;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    .bem-vindo {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .bem-vindo span {
+      color: #c8a97e;
+      font-weight: bold;
+    }
+    
+    #produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .product-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .product-card span {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #5a3921;
+      margin: 10px 0;
+    }
+    
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0;
+      gap: 10px;
+    }
+    
+    .quantity-control button {
+      background-color: #5a3921;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .quantity-control button:hover {
+      background-color: #c8a97e;
+    }
+    
+    .quantity-display {
+      font-size: 1.3rem;
+      font-weight: bold;
+      min-width: 30px;
+      text-align: center;
+    }
+    
+    .add-to-cart {
+      background-color: #c8a97e;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: auto;
+    }
+    
+    .add-to-cart:hover {
+      background-color: #5a3921;
+    }
+    
+    #cart-summary {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-top: 40px;
+      grid-column: 1 / -1;
+    }
+    
+    #cart-items {
+      list-style: none;
+      margin: 15px 0;
+    }
+    
+    #cart-items li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed #ddd;
+    }
+    
+    #cart-total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: right;
+    }
+    
+    #whatsapp-link button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    
+    #whatsapp-link button:hover {
+      background-color: #128C7E;
+    }
+    
+    #sobre, #contato {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .btn-contato {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-contato:hover {
+      background-color: #128C7E;
+    }
+    
+    footer {
+      background-color: #5a3921;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      font-size: 1.1rem;
+    }
+    
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.7rem;
+      }
+      
+      #produtos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body> 
+    <header>
+        <h1>Cardápio Online - Formaggini Trufas</h1>
+    </header> 
+    <nav>
+        <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="bem-vindo">
+          <h1>Bem-vindo ao <span>Formaggini Trufas</span></h1>
+          <p>Descubra nossos deliciosos produtos artesanais feitos com amor e qualidade.</p>
+        </section>
+
+        <section class="produtos-titulo">
+          <h2>Nossos Produtos</h2>
+        </section>
+
+        <section id="produtos">
+            <div class="product-card">
+                <img src="https://placehold.co/600x400?text=Trufa+de+Amora" alt="Trufa de Amora - Deliciosa trufa de chocolate com recheio de geleia de amora">
+                <h3>Trufa de Amora</h3>
+                <p>Trufa de ninho com geleia de amora.</p>
+                <span>R$ 4,00</span>
+                <div class="quantity-control">
+                    <button class="minus-btn" onclick="adjustQuantity(this, -1)">-</button>
+                    <span class="quantity-display">0</span>
+                    <button class="plus-btn" onclick="adjustQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(this)" data-name="Trufa de Amora" data-price="4.00">Adicionar ao pedido</button>
+            </div>
+            
+            <!-- Repetir o mesmo padrão para todos os produtos -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400?text=Trufa+de+Morango" alt="Trufa de Morango - Trufa cremosa com recheio de geleia de morango">
+                <h3>Trufa de Morango</h3>
+                <p>Trufa de ninho com geleia de morango (disponível no chocolate ao leite e no chocolate branco).</p>
+                <span>R$ 4,00</span>
+                <div class="quantity-control">
+                    <button class="minus-btn" onclick="adjustQuantity(this, -1)">-</button>
+                    <span class="quantity-display">0</span>
+                    <button class="plus-btn" onclick="adjustQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(this)" data-name="Trufa de Morango" data-price="4.00">Adicionar ao pedido</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://placehold.co/600x400?text=Trufa+de+Limão" alt="Trufa de Limão - Trufa refrescante com recheio de limão siciliano">
+                <h3>Trufa de Limão</h3>
+                <p>Trufa refrescante com recheio de limão siciliano.</p>
+                <span>R$ 4,00</span>
+                <div class="quantity-control">
+                    <button class="minus-btn" onclick="adjustQuantity(this, -1)">-</button>
+                    <span class="quantity-display">0</span>
+                    <button class="plus-btn" onclick="adjustQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(this)" data-name="Trufa de Limão" data-price="4.00">Adicionar ao pedido</button>
+            </div>
+            
+            <!-- Continuar com os outros produtos seguindo o mesmo padrão -->
+            <div class="product-card">
+                <img src="https://placehold.co/600x400?text=Trufa+de+Prestígio" alt="Trufa de Prestígio - Trufa de coco e chocolate">
+                <h3>Trufa de Prestígio</h3>
+                <p>Trufa de prestígio (disponível somente no chocolate ao leite).</p>
+                <span>R$ 4,00</span>
+                <div class="quantity-control">
+                    <button class="minus-btn" onclick="adjustQuantity(this, -1)">-</button>
+                    <span class="quantity-display">0</span>
+                    <button class="plus-btn" onclick="adjustQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(this)" data-name="Trufa de Prestigio" data-price="4.00">Adicionar ao pedido</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://placehold.co/600x400?text=Trufa+de+Maracujá" alt="Trufa de Maracujá - Trufa tropical com recheio de maracujá">
+                <h3>Trufa de Maracujá</h3>
+                <p>Trufa de maracujá (disponível somente no chocolate ao leite).</p>
+                <span>R$ 4,00</span>
+                <div class="quantity-control">
+                    <button class="minus-btn" onclick="adjustQuantity(this, -1)">-</button>
+                    <span class="quantity-display">0</span>
+                    <button class="plus-btn" onclick="adjustQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(this)" data-name="Trufa de Maracujá" data-price="4.00">Adicionar ao pedido</button>
+            </div>
+
             <div id="cart-summary">
+                <h3>Seu Pedido</h3>
+                <ul id="cart-items"></ul>
+                <p id="cart-total">Total: R$ 0,00</p>
+                <a id="whatsapp-link" href="#" target="_blank" style="display:none;">
+                    <button>Enviar pedido pelo WhatsApp</button>
+                </a>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Formaggini Trufas é uma empresa dedicada a criar trufas artesanais de alta qualidade. Nossa missão é proporcionar momentos doces e inesquecíveis.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Fale conosco pelo WhatsApp:</p>
+            <a class="btn-contato" href="https://wa.me/5599999999999?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20ou%20tirar%20uma%20dúvida." target="_blank">
+                Chamar no WhatsApp
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Formaggini Trufas. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script>
+        // Carrinho de compras
+        let cart = [];
+        
+        // Ajustar quantidade
+        function adjustQuantity(btn, change) {
+            const container = btn.parentNode;
+            const quantityDisplay = container.querySelector('.quantity-display');
+            let quantity = parseInt(quantityDisplay.textContent) + change;
+            
+            if (quantity < 0) quantity = 0;
+            
+            quantityDisplay.textContent = quantity;
+        }
+        
+        // Adicionar ao carrinho
+        function addToCart(btn) {
+            const container = btn.closest('.product-card');
+            const quantityElement = container.querySelector('.quantity-display');
+            const quantity = parseInt(quantityElement.textContent);
+            
+            if (quantity <= 0) {
+                alert('Selecione pelo menos 1 item para adicionar ao carrinho.');
+                return;
+            }
+            
+            const productName = btn.getAttribute('data-name');
+            const productPrice = parseFloat(btn.getAttribute('data-price'));
+            const totalPrice = productPrice * quantity;
+            
+            // Verificar se o produto já está no carrinho
+            const existingItemIndex = cart.findIndex(item => item.name === productName);
+            
+            if (existingItemIndex !== -1) {
+                // Se já existe, atualiza a quantidade e o preço
+                cart[existingItemIndex].quantity += quantity;
+                cart[existingItemIndex].totalPrice += totalPrice;
+            } else {
+                // Se não existe, adiciona novo item
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: quantity,
+                    totalPrice: totalPrice
+                });
+            }
+            
+            // Resetar o contador para 0
+            quantityElement.textContent = '0';
+            
+            // Atualizar o carrinho na tela
+            updateCart();
+        }
+        
+        // Atualizar exibição do carrinho
+        function updateCart() {
+            const cartItemsEl = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart-total');
+            const whatsappLink = document.getElementById('whatsapp-link');
+            
+            // Limpar o carrinho
+            cartItemsEl.innerHTML = '';
+            
+            // Adicionar itens ao carrinho
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${item.name} (${item.quantity}x)</span>
+                    <span>R$ ${item.totalPrice.toFixed(2)}</span>
+                `;
+                cartItemsEl.appendChild(li);
+            });
+            
+            // Calcular total
+            const total = cart.reduce((sum, item) => sum + item.totalPrice, 0);
+            cartTotalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+            
+            // Atualizar link do WhatsApp se houver itens no carrinho
+            if (cart.length > 0) {
+                whatsappLink.style.display = 'block';
+                
+                // Criar mensagem com os itens do pedido
+                let message = 'Olá! Gostaria de fazer o seguinte pedido:\n\n';
+                
+                cart.forEach(item => {
+                    message += `${item.name} - Quantidade: ${item.quantity} - Total: R$ ${item.totalPrice.toFixed(2)}\n`;
+                });
+                
+                message += `\nTotal do pedido: R$ ${total.toFixed(2)}`;
+                
+                // Atualizar link do WhatsApp
+                whatsappLink.href = `https://wa.me/5599999999999?text=${encodeURIComponent(message)}`;
+            } else {
+                whatsappLink.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
                 <h3>Seu Pedido</h3>
                 <ul id="cart-items"></ul>
                 <p id="cart-total"></p>
