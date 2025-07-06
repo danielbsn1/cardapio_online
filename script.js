@@ -8,12 +8,14 @@ function addToCart(button) {
     // Verifica se o produto já está no carrinho
     const existingProduct = cart.find(item => item.name === productName);
     
+    // Se o produto já existe, apenas aumenta a quantidade
     if (existingProduct) {
-        // Se o produto já existe, apenas aumenta a quantidade
-        existingProduct.quantity += 1;
+        existingProduct.quantity += existingProduct.quantity; // Mantém a quantidade atual
     } else {
-        // Se não existe, adiciona o produto ao carrinho com quantidade 1
-        cart.push({ name: productName, price: productPrice, quantity: 1 });
+        // Se não existe, adiciona o produto ao carrinho com a quantidade escolhida
+        const quantityDisplay = button.parentElement.querySelector('.quantity-display');
+        const quantity = parseInt(quantityDisplay.textContent);
+        cart.push({ name: productName, price: productPrice, quantity: quantity });
     }
 
     // Atualiza a exibição do carrinho
@@ -64,30 +66,19 @@ function sendToWhatsApp() {
 
 // Função para ajustar a quantidade de produtos
 function adjustQuantity(button, change) {
-    const productName = button.parentElement.nextElementSibling.getAttribute('data-name');
-    const existingProduct = cart.find(item => item.name === productName);
+    const quantityDisplay = button.parentElement.querySelector('.quantity-display');
+    let currentQuantity = parseInt(quantityDisplay.textContent);
 
-    if (existingProduct) {
-        existingProduct.quantity += change;
+    // Ajusta a quantidade
+    currentQuantity += change;
 
-        // Remove o produto se a quantidade for menor que 1
-        if (existingProduct.quantity < 1) {
-            cart = cart.filter(item => item.name !== productName);
-        }
-    } else {
-        // Se o produto não existe no carrinho e estamos aumentando a quantidade
-        if (change > 0) {
-            const productPrice = parseFloat(button.parentElement.previousElementSibling.textContent.replace('R$ ', '').replace(',', '.'));
-            cart.push({ name: productName, price: productPrice, quantity: 1 });
-        }
+    // Garante que a quantidade não fique negativa
+    if (currentQuantity < 0) {
+        currentQuantity = 0;
     }
 
-    // Atualiza a exibição do carrinho
-    updateCartDisplay();
-
-    // Atualiza a exibição da quantidade no elemento correspondente
-    const quantityDisplay = button.parentElement.querySelector('.quantity-display');
-    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 1 : 0);
+    // Atualiza a exibição da quantidade
+    quantityDisplay.textContent = currentQuantity;
 }
 
 // Função para inicializar a quantidade ao carregar a página
