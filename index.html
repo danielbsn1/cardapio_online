@@ -577,13 +577,7 @@
             // Limpar o carrinho
             <button id="clear-cart" onclick="clearCart()">Limpar Carrinho</button>
             cartItemsEl.innerHTML = '';
-            whatsappLink.style.display = 'none';
-            cartTotalEl.textContent = 'Total: R$ 0,00';
-            if (cart.length === 0) {
-                cartItemsEl.innerHTML = '<li>Nenhum item no carrinho.</li>';
-                return;
-            }
-            
+
             // Adicionar itens ao carrinho
             cart.forEach(item => {
                 const li = document.createElement('li');
