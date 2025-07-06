@@ -26,6 +26,11 @@ function updateCart() {
     message += `Total: R$ ${total.toFixed(2)}`;
     whatsappLink.href = `https://wa.me/${vendedoraPhone}?text=${encodeURIComponent(message)}`;
 }
+    // funçao limpar o carrinho
+function clearCart() {
+    cart.length = 0;
+    updateCart();
+}
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
