@@ -86,5 +86,5 @@ function adjustQuantity(button, change) {
 
     // Atualiza a exibição da quantidade no elemento correspondente
     const quantityDisplay = button.parentElement.querySelector('.quantity-display');
-    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 1 : 0);
+    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 1 : 1);
 }
