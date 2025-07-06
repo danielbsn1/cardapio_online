@@ -75,9 +75,10 @@ function adjustQuantity(button, change) {
             cart = cart.filter(item => item.name !== productName);
         }
     } else {
-        // Se o produto não existe no carrinho, adiciona com quantidade 1
+        // Se o produto não existe no carrinho e estamos aumentando a quantidade
         if (change > 0) {
-            cart.push({ name: productName, price: parseFloat(button.parentElement.previousElementSibling.textContent.replace('R$ ', '').replace(',', '.')), quantity: 1 });
+            const productPrice = parseFloat(button.parentElement.previousElementSibling.textContent.replace('R$ ', '').replace(',', '.'));
+            cart.push({ name: productName, price: productPrice, quantity: 1 });
         }
     }
 
@@ -86,5 +87,5 @@ function adjustQuantity(button, change) {
 
     // Atualiza a exibição da quantidade no elemento correspondente
     const quantityDisplay = button.parentElement.querySelector('.quantity-display');
-    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 0 : 0);
+    quantityDisplay.textContent = existingProduct ? existingProduct.quantity : (change > 0 ? 1 : 0);
 }
