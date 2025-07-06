@@ -1,64 +1,107 @@
-const cart = [];
-const cartItems = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-const whatsappLink = document.getElementById('whatsapp-link');
-const vendedoraPhone = '5533988825731'; // Coloque o número da vendedora aqui, com DDD e sem espaços
-
-function updateCart() {
-    cartItems.innerHTML = '';
-    let total = 0;
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - R$ ${item.price.toFixed(2)} (x${item.qty})`;
-        cartItems.appendChild(li);
-        total += item.price * item.qty;
+// script.js
+// Função para exibir os produtos na página
+function displayProducts(products) {
+    const productList = document.getElementById('product-list');
+    products.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.className = 'product-item';
+        productItem.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Preço: R$ ${product.price.toFixed(2)}</p>
+            <button class="add-to-cart" data-name="${product.name}" data-price="${product.price}" onclick="addToCart(this)">Adicionar ao Carrinho</button>
+        `;
+        productList.appendChild(productItem);
     });
-    cartTotal.textContent = total > 0 ? `Total: R$ ${total.toFixed(2)}` : '';
-    whatsappLink.style.display = total > 0 ? 'inline-block' : 'none';
 
-    // Monta a mensagem para o WhatsApp
-    let message ="Envie os produtos escolhidos para que possamos confirmar seu pedido."
+        // Atualiza a lista de itens no carrinho
+        updateCartDisplay();
 
-    message += 'Cardápio:\n'
-    cart.forEach(item => {
-        message += `- ${item.name} (x${item.qty}) - R$ ${item.price.toFixed(2)}\n`;
-    });
-    message += `Total: R$ ${total.toFixed(2)}`;
-    whatsappLink.href = `https://wa.me/${vendedoraPhone}?text=${encodeURIComponent(message)}`;
-}
-    // funçao limpar o carrinho
-function clearCart() {
-    cart.length = 0 //Limpa o array do carrinho
-    updateCart(); // Atualiza a exibição do carrinho
-    alert('Carrinho limpo com sucesso!');
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-        btn.classList.remove('added'); // Remove a classe 'added' de todos os botões
-    });
-}
+    // Função para atualizar a exibição do carrinho
+    function updateCartDisplay() {
+        const cartItems = document.getElementById('cart-items');
+        cartItems.innerHTML = ''; // Limpa a lista atual
 
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        const price = parseFloat(btn.getAttribute('data-price'));
-        const existing = cart.find(item => item.name === name);
-        if (existing) {
-            existing.qty += 1;
-        } else {
-            cart.push({ name, price, qty: 1 });
-        }
-        updateCart();
-        alert(`${name} adicionado ao carrinho!`);
-    });
-});
-document.getElementById('clear-cart').addEventListener('click', clearCart);
-document.getElementById('whatsapp-link').addEventListener('click', (e) => {
-    if (cart.length === 0) {
-        e.preventDefault();
-        alert('Seu carrinho está vazio. Adicione itens antes de enviar o pedido.');
+        let total = 0; // Inicializa o total
+        cart.forEach(item => {
+            const newItem = document.createElement('li');
+            newItem.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+            cartItems.appendChild(newItem);
+            total += item.price; // Atualiza o total
+        });
+
+        // Atualiza o total no display
+        document.getElementById('cart-total').textContent = `Total: R$ ${total.toFixed(2)}`;
     }
-});
-document.addEventListener('DOMContentLoaded', () => {
-    updateCart(); // Atualiza o carrinho ao carregar a página
-});
 
+    // Função para limpar o carrinho
+    function clearCart() {
+        cart = []; // Limpa o array do carrinho
+        updateCartDisplay(); // Atualiza a exibição do carrinho
+    }
 
+    // Função para enviar pedido pelo WhatsApp
+    function sendToWhatsApp() {
+        if (cart.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        
+        }
+
+        let message = 'Meu pedido:\n';
+        cart.forEach(item => {
+            message += `${item.name} - R$ ${item.price.toFixed(2)}\n`;
+        });
+
+        const total = document.getElementById('cart-total').textContent;
+        message += total;
+
+        const whatsappUrl = `https://wa.me/5533988825731?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+    // Função para adicionar produtos ao carrinho
+function addToCart(button) {
+    const productName = button.getAttribute('data-name');
+    const productPrice = parseFloat(button.getAttribute('data-price'));
+    
+    // Lógica para adicionar o produto ao carrinho
+    // Exemplo: Atualizar a lista de itens no carrinho
+    const cartItems = document.getElementById('cart-items');
+    const newItem = document.createElement('li');
+    newItem.textContent = `${productName} - R$ ${productPrice.toFixed(2)}`;
+    cartItems.appendChild(newItem);
+    
+    // Atualizar total
+    updateCartTotal(productPrice);
+}
+
+// Função para limpar o carrinho
+function clearCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = ''; // Limpa a lista de itens
+    updateCartTotal(0); // Reseta o total
+}
+
+// Função para atualizar o total do carrinho
+function updateCartTotal(price) {
+    const cartTotal = document.getElementById('cart-total');
+    let currentTotal = parseFloat(cartTotal.textContent.replace('Total: R$ ', ''));
+    currentTotal += price;
+    cartTotal.textContent = `Total: R$ ${currentTotal.toFixed(2)}`;
+}
+
+// Função para enviar pedido pelo WhatsApp
+function sendToWhatsApp() {
+    const cartItems = document.getElementById('cart-items').children;
+    let message = 'Meu pedido:\n';
+    
+    for (let item of cartItems) {
+        message += `${item.textContent}\n`;
+    }
+    
+    const total = document.getElementById('cart-total').textContent;
+    message += total;
+    
+    const whatsappUrl = `https://wa.me/5533988825731?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+}
