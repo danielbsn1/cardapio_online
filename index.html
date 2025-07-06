@@ -575,7 +575,14 @@
             const whatsappLink = document.getElementById('whatsapp-link');
             
             // Limpar o carrinho
+            <button id="clear-cart" onclick="clearCart()">Limpar Carrinho</button>
             cartItemsEl.innerHTML = '';
+            whatsappLink.style.display = 'none';
+            cartTotalEl.textContent = 'Total: R$ 0,00';
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<li>Nenhum item no carrinho.</li>';
+                return;
+            }
             
             // Adicionar itens ao carrinho
             cart.forEach(item => {
@@ -613,25 +620,21 @@
     </script>
 </body>
 </html>
-         //adicionar a opçaao limpara carrinho
-            <div id="cart-summary">
-                <h3>Seu Pedido</h3>
-                <ul id="cart-items"></ul>
-                <p id="cart-total">Total: R$ 0,00</p>
-                <a id="whatsapp-link" href="#" target="_blank" style="display:none;">
-                    <button>Enviar pedido pelo WhatsApp</button>
-                </a>
-                <script>
-                    // Função para limpar o carrinho
-                    function clearCart() {
-                        cart = [];
-                        updateCart();
-                    }
+      
+
+        
+         
                 </script>
             </div>
         <section id="sobre">
             <h2>Sobre Nós</h2>
-            <p>Formaggini Trufas é uma empresa dedicada a criar trufas artesanais de alta qualidade. Nossa missão é proporcionar momentos doces e inesquecíveis.</p>
+            <p>Conheça a Formaggini Trufas 🍫✨
+
+A Formaggini Trufas é uma loja artesanal feita com amor e muito sabor! Com mais de um ano de história, é comandada por uma única pessoa — que cuida de tudo com carinho: desde a produção até a entrega final.
+
+Aqui, cada trufa é feita à mão, com ingredientes selecionados e um cuidado especial em cada detalhe. Nosso foco é entregar qualidade, frescor e aquele sabor marcante que faz toda diferença!
+
+Seja para presente, datas especiais ou só para adoçar seu dia, você pode contar com a Formaggini Trufas..</p>
         </section>
 
         <section id="contato">
